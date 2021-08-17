@@ -1,10 +1,11 @@
 <template>
 <section  class="preview-container">
+  <div >
   <div class="img-preview">
     <!-- <img class="card" @click="showModal" src="@/assets/images/proj/mine-swippers/2.png"> -->
      <!-- <img class="card" @click="showModal" :src="require(getImg)">  -->
       <img :src="require(`../assets/${project.imgsUrl}.png`)" >
-    
+  </div>
   </div>
     <div @click="closeModal" v-bind:class="{ pageBackground:isActive}">
   <section v-bind:class="{show:!isActive}" v-if="project">
@@ -40,9 +41,20 @@
 <!-- <iframe  src="https://vimeo.com/585256386?controls=0?background=1" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe> -->
     <!-- <iframe data-v-cec65ac8="" src="http://www.youtube.com/embed/Rwh7XChd8Mg?autoplay=1?background=1" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe> -->
     <!-- <iframe width="420" height="345" src="http://www.youtube.com/embed/Rwh7XChd8Mg?autoplay=1" frameborder="0" allow='autoplay' allowfullscreen></iframe> -->
-       <iframe src="//www.youtube.com/embed/Rwh7XChd8Mg?autoplay=1&mute=1" name="youtube embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                                                                                 
+       <!-- <iframe  src="//www.youtube.com/embed/Rwh7XChd8Mg?autoplay=1&mute=1&controls=0&loop=1&start=15"  frameborder="0" name="youtube embed" allow="autoplay;fullscreen;encrypted-media" allowfullscreen></iframe> -->
+<div class="video">
+ <iframe width="100%" height="100%" src="https://res.cloudinary.com/dg6yaccvn/video/upload/v1629139428/mine-swiper-video_toox3e.mp4?autoplay=1&mute=1&controls=0&loop=1&start=25"  frameborder="0" name="youtube embed" allow="autoplay;fullscreen;encrypted-media" allowfullscreen></iframe>
+</div>
+       <!-- <iframe
+            src="https://player.vimeo.com/video/541299038?background=1"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe> -->
           </div>
-          {{getImg}}
    </span>
    <div  class="wraaper-display-img">
        <!-- <div    v-for="(img,idx) in project.imgsUrl" :key="idx" class="wraaper-display-img"> -->
@@ -101,6 +113,7 @@ this.isActive=!this.isActive
     return {
       isActive:false,
 url : this.project.url
+
     };
   },
   created(){
@@ -113,14 +126,28 @@ url : this.project.url
 </script>
 
 <style scoped>
-.preview-container {
+.img-container{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20% ;
+   grid-template-rows: 20% 20% 20% 20% 20% ;
+}
+.img-container> div:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    
+}
+/* .preview-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+   grid-template-columns: 20% 20% 20% 20% 20% ;
+   grid-template-rows: 33% 33% 33% ;
   grid-gap: 20px;
-  grid-auto-rows: minmax(180px, auto);
-  grid-auto-flow: dense;
 
 }
+.preview-container > img:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    
+} */
 .projectModal {
   background-color: #fff;
   background-image: url(/static/media/element_mountains_flip.b1e12ffb.jpg);
@@ -211,6 +238,20 @@ text-align: center;
 
 .wraaper-display-img{
   flex-basis: 40%;
+}
+.video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+   
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
 }
 </style>
 

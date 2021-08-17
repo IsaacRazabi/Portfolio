@@ -4,7 +4,7 @@
     <main class="main-list-container">
     
  
-  <ul class="ul-clean preview-container">
+  <ul class="ul-clean img-container">
       <li v-for="project in projects" :key="project._id">
         <projectPreview :project="project"></projectPreview>
       </li>
@@ -56,12 +56,46 @@ export default {
   list-style-type : none
 }
 
-.preview-container {
+/* .preview-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-gap: 20px;
   grid-auto-rows: minmax(180px, auto);
   grid-auto-flow: dense;
-
+} */
+.img-container{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20% ;
+   grid-template-rows: 20% 20% 20% 20% 20% ;
+}
+.img-container> li:nth-child(1) {
+    grid-column-start: 4;
+    grid-column-end: 6;
+        grid-row-start: 1;
+    grid-row-end: 2;
+}
+.img-container> li:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+        grid-row-start: 1;
+    grid-row-end: 3;
+}
+.img-container> li:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+        grid-row-start: 3;
+    grid-row-end: 4;
+}
+.img-container> li:nth-child(4) {
+    grid-column-start: 4;
+    grid-column-end: 6;
+        grid-row-start: 2;
+    grid-row-end: 4;
+}
+.img-container> li:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 6; 
+       grid-row-start: 4;
+    grid-row-end: 6;
 }
 </style>
