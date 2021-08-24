@@ -1,23 +1,18 @@
 <template>
- <section>
-      <section class="list-section">
-    <main class="main-list-container">
-    
- 
-  <ul class="ul-clean img-container">
-      <li v-for="project in projects" :key="project._id">
-        <projectPreview :project="project"></projectPreview>
-      </li>
-    </ul>
-
-
-
+  <section>
+    <p class="head-line">Projects</p>
+    <section class="list-section">
+        <div class="img-container">
+          <!-- <span v-for="project in projects" :key="project._id">
+            <projectPreview :project="project"></projectPreview>
+          </span> -->
+           
+            <projectPreview v-for="project in projects" :key="project._id" :project="project"></projectPreview>
+          
+        </div>
   
-    </main>
-    
+    </section>
   </section>
-
- </section>
 </template>
 
 <script>
@@ -25,35 +20,32 @@ import projectPreview from "./project-preview.vue";
 
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
   props: {
     projects: {
       type: Array,
     },
   },
-  methods: {
-   
-  },
-  computed:{
-  
-  },
+  methods: {},
+  computed: {},
   components: {
     projectPreview,
-  
   },
   created() {
     window.scrollTo(0, 0);
   },
 };
-
 </script>
 
 <style scoped>
-.ul-clean{
-  list-style-type : none
+.ul-clean {
+  list-style-type: none;
+}
+.list-section {
+  max-width: 900px;
+  margin: auto;
+  /* margin-bottom: 60px; */
 }
 
 /* .preview-container {
@@ -63,39 +55,39 @@ export default {
   grid-auto-rows: minmax(180px, auto);
   grid-auto-flow: dense;
 } */
-.img-container{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20% ;
-   grid-template-rows: 20% 20% 20% 20% 20% ;
+.img-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
-.img-container> li:nth-child(1) {
-    grid-column-start: 4;
-    grid-column-end: 6;
-        grid-row-start: 1;
-    grid-row-end: 2;
+.img-container > :nth-child(1) {
+  grid-column: 1/4;
+  grid-row: 3/4;
+  height: 230px;
 }
-.img-container> li:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 4;
-        grid-row-start: 1;
-    grid-row-end: 3;
+.img-container > :nth-child(2) {
+  grid-column: 1/4;
+  grid-row: 2/3;
+  height: 340px;
+  margin-right: 10px;
 }
-.img-container> li:nth-child(3) {
-    grid-column-start: 1;
-    grid-column-end: 3;
-        grid-row-start: 3;
-    grid-row-end: 4;
+.img-container > :nth-child(3) {
+  grid-column: 4/6;
+  grid-row: 3/4;
+ height: 230px;
 }
-.img-container> li:nth-child(4) {
-    grid-column-start: 4;
-    grid-column-end: 6;
-        grid-row-start: 2;
-    grid-row-end: 4;
+.img-container > :nth-child(4) {
+  grid-column: 4/6;
+  grid-row: 2/3;
+   height:340px;
 }
-.img-container> li:nth-child(5) {
-    grid-column-start: 1;
-    grid-column-end: 6; 
-       grid-row-start: 4;
-    grid-row-end: 6;
+.img-container > :nth-child(5) {
+  grid-column: 1/6;
+  grid-row: 1/2;
+  height: 360px;
+}
+.head-line {
+  font-family: "latoregular";
+  font-size: 30px;
 }
 </style>

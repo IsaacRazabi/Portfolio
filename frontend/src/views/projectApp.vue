@@ -1,5 +1,5 @@
 <template>
-<main>
+<main id="projects">
   <section v-if="projects">
     <projectList :projects="projects"></projectList>
   </section>

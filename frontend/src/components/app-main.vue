@@ -14,9 +14,15 @@
 <span class="card-container">
 <img class="education-logo" src="@/assets/images/openu.jpg" >
 <p> Open University </p>
-<p> A bachelor's degree :  </p>
+<p> B.A Humanities and 
+ social sciences            
+
+  </p>
 </span>
 </main>
+<p>
+    Skills
+</p>
 <div class="skills-container">
     <img src="@/assets/images/skills/css.png" >
     <img src="@/assets/images/skills/download.jpg" >
@@ -75,8 +81,9 @@ display: flex;
 }
 .skills-container{
     display: flex;
-justify-content: space-around;
+justify-content: center;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 img{
         max-width: 90px;

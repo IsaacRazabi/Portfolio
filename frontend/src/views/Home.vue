@@ -1,10 +1,16 @@
 <template>
 <main class="container">
-<navBar></navBar>
-<appHeader></appHeader>
+ <navBar></navBar>
+ <router-view :key="$route.path"/>
+      
+ <appHeader></appHeader> 
 <appMain></appMain>
-<appFooter></appFooter>
 <projectApp></projectApp>
+<About></About>
+ <Content></Content>
+ 
+<appFooter></appFooter>  
+      
 </main>
 </template>
 
@@ -14,6 +20,9 @@ import appFooter from '../components/app-footer.vue'
 import projectApp from '../views/projectApp.vue'
 import appHeader from '../components/app-header.vue'
 import appMain from '../components/app-main.vue'
+import About from '../views/About.vue'
+import Content from '../views/Content.vue'
+
 export default {
   name: 'Home',
   components: {
@@ -21,7 +30,9 @@ export default {
 navBar,
 projectApp,
 appHeader,
-appMain
+appMain,
+About,
+Content
   }
 }
 </script>

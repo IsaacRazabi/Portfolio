@@ -4,36 +4,64 @@ import Home from '../views/Home.vue'
 import projectApp from '../views/projectApp.vue'
 import projectDetails from '../components/project-details.vue'
 import About from '../views/About.vue'
-import contect from '../components/contect.vue'
+import Content from '../views/Content.vue'
+
 
 Vue.use(VueRouter)
+
+
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
-  },
-  {
-    path: '/projects',
+    component: Home,
+    children: [
+      {
+        path: 'projects',
     name: 'projects',
-    component: projectApp
+    component: projectApp,
+    children: [
+      {
+        path: '/projects/:projectId',
+        name: 'project-details',
+        component: projectDetails
+      },
+    ]
+      },
+      {
+        path: '/About',
+        name: 'About',
+        component: About
+      },
+      {
+        path: '/Content',
+        name: 'Content',
+        component:Content
+      },
+    
+    ]
   },
-  {
-    path: '/projects/:projectId',
-    name: 'project-details',
-    component: projectDetails
-  },
-  {
-    path: '/About',
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/  contect',
-    name: '  contect',
-    component:   contect
-  },
+  // {
+  //   path: '/projects',
+  //   name: 'projects',
+  //   component: projectApp
+  // },
+  // {
+  //   path: '/projects/:projectId',
+  //   name: 'project-details',
+  //   component: projectDetails
+  // },
+  // {
+  //   path: '/About',
+  //   name: 'About',
+  //   component: About
+  // },
+  // {
+  //   path: '/  contect',
+  //   name: '  contect',
+  //   component:   contect
+  // },
 
   // {
   //   path: '/About',
@@ -46,9 +74,24 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition}
+      else {
+        const position = {};
+        if ( to.hash){
+          position.selector =to.hash ;
+          if(document.querySelector(to.hash)){
+            return position
+          }
+          return false
+        }
+    }
+  }
 })
 
 export default router
+

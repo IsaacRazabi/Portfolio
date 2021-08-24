@@ -39,18 +39,23 @@
         <ul class="main-menu clean-list flex align-center">
           <li>
             <!-- <router-link to="/">Home</router-link> -->
-            <router-link to="/"
+            <router-link to="/" 
               ><a href="#" class="active">Home</a></router-link
             >
           </li>
           <li>
-            <router-link to="/about"><a href="#">About me</a></router-link>
+            <router-link  to="/about"><a href="#">About me</a></router-link>
           </li>
           <li>
-            <router-link to="/projects"><a href="#">Projects</a></router-link>
+            <router-link  to="/projects" >Projects</router-link>
+                       <!-- <router-link  :to="{
+               name:'destination/projects',
+               hash:'#projects'
+             }">projects</router-link> -->
           </li>
           <li>
-            <router-link to="/contact"><a href="#">Contact</a></router-link>
+            <router-link  to="/content"><a href="#">Content</a></router-link>
+  
           </li>
         </ul>
         <button
@@ -97,6 +102,9 @@ export default {
     toogleShow() {
       this.isShow = !this.isShow;
     },
+     scrollToTop() {
+                window.scrollTo(0,0);
+           }
   },
 };
 </script>

@@ -5,7 +5,8 @@
     <div>Hi ,</div> 
     <div>Im Issac Razabi,</div> 
     <p :v-model="changeText">{{changeText}}</p> 
-    <button>Download my resume</button>
+    <!-- <button> <a href="https://res.cloudinary.com/dg6yaccvn/raw/upload/v1629797745/Issac__Razabi_Resume_u5wwfr.docx">Download my resume</a></button> -->
+    <el-button type="text" @click="open">Download my resume</el-button>
    </div>
   </main>
 </template>
@@ -49,7 +50,11 @@ else{
        }
        }, this.speed);
     },
-
+     open() {
+        this.$alert('<a href="https://res.cloudinary.com/dg6yaccvn/raw/upload/v1629797745/Issac__Razabi_Resume_u5wwfr.docx"><img style="width: 100px;height: 100px;margin: 43px;"  src="https://cdn.appuals.com/wp-content/uploads/2019/01/MS-Word-768x727.png.webp"/></a><a href="https://res.cloudinary.com/dg6yaccvn/raw/upload/v1629797745/Issac__Razabi_Resume_u5wwfr.docx"><img style="width: 100px;height: 100px;margin: 43px;" src="https://science.nrao.edu/science/reports/gender-related-systematics-cycles12a-19a/833pxPDF_file_icon.svg.png/image"/></a>', {
+          dangerouslyUseHTMLString: true
+        });
+      }
   },
   created(){
 
@@ -99,5 +104,13 @@ button {background: white; font-family: 'latoregular';font-size: 40px;
     border-radius: 30px;
     padding: 0 10px;
     transition: background-color .2s ease-in-out;
+}
+a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+span  {
+  display: none;
 }
 </style>
