@@ -59,6 +59,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  margin-bottom: 60px;
 }
 .img-container > :nth-child(1) {
   grid-column: 1/4;
@@ -88,6 +89,6 @@ export default {
 }
 .head-line {
   font-family: "latoregular";
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 </style>

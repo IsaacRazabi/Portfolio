@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }
 
+#app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 html {
     font-family: Montserrat, sans-serif;
     line-height: 1.6;

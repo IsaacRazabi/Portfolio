@@ -91,9 +91,9 @@ else{
 /* font-family: 'eurofbold'; */
   height: 250px;
     text-align: center;
-    font-size: 40px;
+    font-size: 2rem;
 }
-button {background: white; font-family: 'latoregular';font-size: 40px;
+button {background: white; font-family: 'latoregular';font-size: 2rem;
     color: #fff;
     padding: 8px;
     align-items: center;

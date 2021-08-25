@@ -50,6 +50,9 @@
             </p>
           </div>
           <div class="video">
+              <!-- <el-table
+    v-loading="loading"
+    :target=iframe> -->
             <iframe
               width="100%"
               height="100%"
@@ -59,6 +62,7 @@
               allow="autoplay;fullscreen;encrypted-media"
               allowfullscreen
             ></iframe>
+              <!-- </el-table> -->
           </div>
         </span>
       </div>
@@ -92,6 +96,9 @@ return this.project.url
   methods: {
     showModal() {
       this.isActive = !this.isActive;
+      setTimeout(() => {
+        this.loading=false
+      }, 2000);
     },
     closeModal(e){
       if (e.target === this.$refs.modalWrapper){
@@ -104,6 +111,7 @@ return this.project.url
       isActive: false,
       url: this.project.url,
       modal: this.$refs.modalWrapper,
+         loading: true
     };
   },
   created() {},
@@ -136,7 +144,7 @@ bottom: 230%;
     display: flex;
     flex-wrap: wrap;
   font-family: "latoregular";
-  font-size: 29px;
+  font-size: 1.5rem;
   /* padding: 10%; */
 }
 
@@ -171,7 +179,7 @@ display: none;
 }
 .head-line {
   font-family: "latoregular";
-  font-size: 40px;
+  font-size: 2rem;
   background-color: gainsboro;
   max-width: 100%;
   margin: 0;

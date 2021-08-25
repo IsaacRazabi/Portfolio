@@ -1,73 +1,39 @@
 <template>
-  <!-- <main class="nav-bar-container" v-bind:class="{ active: onTop }">
-  <div class="nav-bar-main">
-    <section class="header-container">
-     <router-link to="/" class="home" exact>
-     </router-link>
-      <div class="side-header">
-
-      <nav class="nav-menu">
-        <router-link to="/" class="home" exact><span>Home</span></router-link> 
-        <router-link to="/contect"><span>Contect</span></router-link> 
-        <router-link  to="/projects"><span>Projects</span></router-link>
-      </nav>
-
-       <div class="dropdown">
-        <span  class=" user" @click="toogleShow">
-    
-        </span> -->
-  <!-- <div v-bind:class="{ show: isShow }" >
-          <div v-bind:class="{ show: isShow }" class="dropdownContent">
-         <router-link to="/" class="home" exact><span>Home</span></router-link> 
-        <router-link to="/contect"><span>Contect</span></router-link> 
-        <router-link  to="/projects"><span>Projects</span></router-link>
-          </div>
-          </div> -->
-  <!-- </div>
-        </div>
-    </section>
-</div>
-</main> -->
-
-  <header>
+ <header>
     <section class="container header-wrapper flex align-center">
       <div class="logo flex-1">
         IsaacRazabi
         <span>.</span>
       </div>
       <nav id="mainMenu" class="main-menu-wrapper">
-        <ul class="main-menu clean-list flex align-center">
-          <li>
-            <!-- <router-link to="/">Home</router-link> -->
+        <ul :class="{open:shoeMobileMenu}" class="main-menu clean-list flex align-center" >
+          <li @click.prevent="scrollToTop('home')">
             <router-link to="/" 
-              ><a href="#" class="active">Home</a></router-link
+              >Home</router-link
             >
           </li>
-          <li>
-            <router-link  to="/about"><a href="#">About me</a></router-link>
+          <li  @click.prevent="scrollToTop('about')">
+            <router-link  to="about">About me</router-link>
           </li>
-          <li>
-            <router-link  to="/projects" >Projects</router-link>
-                       <!-- <router-link  :to="{
-               name:'destination/projects',
-               hash:'#projects'
-             }">projects</router-link> -->
+          <li  @click.prevent="scrollToTop('projects')" >
+            <router-link  to="projects" >Projects</router-link>
           </li>
-          <li>
-            <router-link  to="/content"><a href="#">Content</a></router-link>
+          <li @click.prevent="scrollToTop('content')">
+            <router-link   to="content">Content</router-link>
   
           </li>
         </ul>
         <button
           class="toggle-menu-btn fa"
-          onclick="toggleMenu()"
+          @click.prevent="toogleShow()"
           alt="Open main menu"
         >
-          
+         <img class="menu-img" src="@/assets/images/menu.png" alt="">
         </button>
         <div
+        :class="{closeMenu:shoeMobileMenu}"
           class="toggle-menu-screen screen"
-          onclick="toggleMenu()"
+           @click.prevent="toogleShow()"
           alt="toggle main menu"
         ></div>
       </nav>
@@ -81,7 +47,7 @@ export default {
   data() {
     return {
       isShow: true,
-
+shoeMobileMenu:false,
       onTop: false,
     };
   },
@@ -100,148 +66,29 @@ export default {
   },
   methods: {
     toogleShow() {
-      this.isShow = !this.isShow;
+      console.log('sdfds');
+      this.shoeMobileMenu =!this.shoeMobileMenu
     },
-     scrollToTop() {
-                window.scrollTo(0,0);
+     scrollToTop(comp) {
+       const position = document.getElementById(comp).offsetTop;
+      //  if(comp ==='home') position = 0 
+                // window.scrollTo(0,position);
+                 window.scrollTo({ top: position, behavior: "smooth" })
            }
   },
+  nav(link) {
+          const position = document.getElementById(link.id).offsetTop;
+          
+          // smooth scroll
+          window.scrollTo({ top: position, behavior: "smooth" });  
+   },
+   toggleMenu(){
+ this.shoeMobileMenu =!this.shoeMobileMenu
+   }
 };
 </script>
 <style scoped>
-/* @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri&family=Lato&family=Mukta&family=Nunito+Sans:wght@200&family=Poppins:wght@200;400&display=swap");
-.logo-container {
-  display: flex;
-}
-.red-btn2 {
-  border-radius: 50%;
-  width: 50px;
-}
-.nav-bar-container {
-  width: 100%;
-  grid-column: 1/-1;
-  z-index: 6;
-  background-color: white;
-  display: grid;
-  grid-template-columns: 80px 1fr 80px;
-  grid-auto-flow: dense;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
-}
-.nav-menu span {
-  padding-right: 10px;
-  color: black;
-}
-.nav-menu span:hover {
-  text-decoration-line: underline;
-}
-.logo-title {
-  font-family: "Lobster", cursive;
-  font-size: 23px;
-  line-height: 5px;
-  color: rgb(255, 56, 92);
-  position: relative;
-  top: 12px;
-  padding: 10px;
-}
 
-.header-container {
-  grid-column: 2;
-}
-
-.nav-menu {
-  margin-inline-start: auto;
-  font-family: "Mukta", sans-serif;
-  font-size: 18px;
-  font-weight: 200;
-}
-.header-container {
-  height: 80px;
-  background-color: #fff !important;
-
-  z-index: 50;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logIn-dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 10px 5px 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 3px solid black;
-}
-.header-img {
-  width: 28px;
-  height: 25px;
-  padding: 0 0 0 2px;
-}
-
-.nav-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 8px;
-}
-.side-header {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  gap: 8px;
-}
-
-.dropbtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-.dropdown img {
-  margin-top: 7px;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: 85px;
-  height: 42px;
-  border: 1px solid #ddd;
-  border-radius: 50px;
-  justify-items: center;
-}
-.show {
-  display: none;
-}
-
-.dropdownContent {
-  position: absolute;
-  background-color: white;
-  min-width: 65px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdownContent a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  width: 120px;
-}
-
-.dropdownContent a:hover {
-  background-color: #ddd;
-}
-
-.showNavOnScroll {
-  position: fixed;
-  z-index: 1;
-}
-.user-status-log {
-  width: 322px;
-} */
 
 @charset "UTF-8";
 /* Layout */
@@ -398,7 +245,7 @@ button {
 
 header {
   /* background: url("../assets/images/header-bg.gif"); */
-  height: 130px;
+  height: 100px;
   margin-bottom: 40px;
   /* color: #fff; */
   font-family: latobold, sans-serif; }
@@ -433,11 +280,11 @@ header {
     top: 0;
     right: 0;
     z-index: 300;
-    background: #292929;
+    background: snow;
     height: 100vh;
     transition: transform 1s;
     transform: translate(100%, 0); }
-    .open .main-menu {
+    .open  {
       transform: translate(0, 0); }
     .main-menu a {
       height: auto;
@@ -469,11 +316,14 @@ header {
   .open .toggle-menu-screen {
     visibility: visible;
     opacity: 1; }
-
+.closeMenu{
+ visibility: visible;
+    opacity: 1;
+}
 .toggle-menu-btn {
   background: none;
   border: none;
-  color: #fff;
+  /* color: #fff; */
   font-size: 1.75rem;
   padding: 20px;
   display: none; }
@@ -535,6 +385,15 @@ grid-column: 1/2;
     .container {
       max-width: 100%; } } */
 
+.container{
+ position: fixed;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* box-shadow: 0 9px 29px rgb(252 53 73 / 22%); */
+}
   .main-wrapper .first-panel {
     /* width: 300px; */
     flex-basis: 34%;
@@ -660,9 +519,9 @@ footer {
                height: 500px
               }
             
-              .flex{
+              /* .flex{
                 flex-direction: column;
-             }
+             } */
              .placeholder2{
                grid-column: unset;
               }
@@ -676,5 +535,8 @@ footer {
                 flex-wrap: wrap;
               }
               }
-
+.menu-img{
+  width: 150px;
+    height: 100px;
+}
 </style>

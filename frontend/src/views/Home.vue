@@ -1,17 +1,18 @@
-<template>
-<main class="container">
+<template id="home">
+<section class="home" >
+<div class="nav-wraaper"> 
  <navBar></navBar>
- <router-view :key="$route.path"/>
-      
+ </div>
+<main class="container">
  <appHeader></appHeader> 
 <appMain></appMain>
-<projectApp></projectApp>
-<About></About>
- <Content></Content>
- 
+<projectApp id="projects"></projectApp>
+<About  id="about"></About>
+ <Content id="content"></Content>
 <appFooter></appFooter>  
       
 </main>
+</section>
 </template>
 
 <script>
@@ -40,12 +41,23 @@ Content
 <style scoped>
      
 .container {
-  max-width: 1500px;
+  max-width:  1000px;
   margin: 0 auto; }
-  @media (max-width: 980px) {
-    .container {
-      max-width: 740px; } }
   @media (max-width: 740px) {
     .container {
+      max-width: 400px; } }
+       @media (max-width: 490px) {
+    .container {
       max-width: 100%; } }
+
+      .nav-wraaper{
+          max-width:  1300px;
+  margin: 0 auto; }
+  @media (max-width: 980px) {
+    .nav-wraaper {
+      max-width: 740px; } }
+  @media (max-width: 740px) {
+    .nav-wraaper {
+      max-width: 100%; } }
+      
 </style>

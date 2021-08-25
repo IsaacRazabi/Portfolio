@@ -1,14 +1,14 @@
 <template>
 <main class="about-wrapper">
-  <p>About me</p>
+  <p class="head-line">About me</p>
 <main class="about-container">
 <img class="abuot-img" src="@/assets/images/me.jpg">
 <main class="about-text-container">
-<p>•  HI! I AM Issac Razabi</p>
-<p>•	I'm Writing Single Page Applications using Advanced Web Technologies such as Vue, Vuex and NodeJs and much more </p>
-<p>•	Quick learner, open minded, team player with excellent human relations. </p>
-<p>•	I am very passionate to code and finding solutions to complicated logical problems.</p> 
-<p>•  After career retraining from finance into web programming </p>
+<p>HI! I AM <span>Issac Razabi </span> 
+	I'm Writing Single Page Applications using Advanced Web Technologies such as <span> Vue, Vuex, NodeJs and much more. </span></p> 
+	<p> I am a quick learner, open minded, team player with excellent human relations. 
+	I am <span> very passionate </span> to code and finding solutions to complicated logical problems 
+  After career retraining from finance into web programming </p>
 </main>
 </main>
 </main>
@@ -36,6 +36,8 @@ export default {
 <style scoped>
 .about-container{
   display: flex;
+      gap: 46px;
+    align-items: center;
 }
 .abuot-img{
   border-radius: 50%;
@@ -47,6 +49,15 @@ export default {
 }
 .about-wrapper{
    font-family: "latoregular";
-  font-size: 25px;
+  font-size: 1.25rem;
+  margin-bottom: 60px;
+}
+p span {
+  color:  red;
+  font-size: 1.5rem;
+}
+.head-line{
+      font-family: 'latoregular';
+    font-size: 1.5rem;
 }
 </style>

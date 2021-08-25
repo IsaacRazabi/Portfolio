@@ -64,7 +64,7 @@ export default {
 <style scoped>
 p{
     font-family: 'latoregular';
-        font-size: 30px;
+        font-size: 1.5rem;
 }
 .education-container{
 display: flex;
