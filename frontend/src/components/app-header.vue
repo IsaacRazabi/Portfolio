@@ -113,4 +113,17 @@ a {
 span  {
   display: none;
 }
+
+@media (max-width:740px) {
+.el-message-box__wrapper{
+ position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 240px;
+    margin: auto;
+}
+}
 </style>

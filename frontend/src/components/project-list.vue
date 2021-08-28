@@ -61,6 +61,16 @@ export default {
   grid-template-rows: repeat(3, 1fr);
   margin-bottom: 60px;
 }
+  @media (max-width: 750px) {
+    .img-container {
+        /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  margin-bottom: 60px;  */
+  display: flex;
+  flex-direction: column-reverse;
+  } }
+
 .img-container > :nth-child(1) {
   grid-column: 1/4;
   grid-row: 3/4;
@@ -90,5 +100,6 @@ export default {
 .head-line {
   font-family: "latoregular";
   font-size: 1.5rem;
+  text-align: center;
 }
 </style>

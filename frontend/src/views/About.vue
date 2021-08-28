@@ -39,6 +39,14 @@ export default {
       gap: 46px;
     align-items: center;
 }
+  @media (max-width: 750px) {
+   .about-container{
+  display: flex;
+  flex-direction: column;
+      /* gap: 46px;
+    align-items: center; */
+} 
+  }
 .abuot-img{
   border-radius: 50%;
   flex-basis: 50%;
@@ -59,5 +67,6 @@ p span {
 .head-line{
       font-family: 'latoregular';
     font-size: 1.5rem;
+     text-align: center;
 }
 </style>

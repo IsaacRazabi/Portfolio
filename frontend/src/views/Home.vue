@@ -1,5 +1,5 @@
-<template id="home">
-<section class="home" >
+<template>
+<section  id="home" class="home" >
 <div class="nav-wraaper"> 
  <navBar></navBar>
  </div>
@@ -60,4 +60,5 @@ Content
     .nav-wraaper {
       max-width: 100%; } }
       
+
 </style>

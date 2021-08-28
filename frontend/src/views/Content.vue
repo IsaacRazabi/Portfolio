@@ -6,10 +6,10 @@
 <p class="contact-item"><img src="@/assets/images/contact/home.jpg" alt=""> Jerusalem</p>
 <p class="contact-item"><img src="@/assets/images/contact/mail.png" alt=""> Poetryor@gmail.com</p>
 <p class="contact-item"><img src="@/assets/images/contact/phone.jpg" alt=""> 0546-352-350</p>
-<img src="@/assets/images/contact/linkedin.jpg" alt="">
-<img src="@/assets/images/contact/facebook.png" alt="">
+<a href="https://www.linkedin.com/in/isaac-razabi-0a06311aa/"><img src="@/assets/images/contact/linkedin.jpg" alt=""></a>
+<a href="https://www.facebook.com/Isaac.Razabi"><img src="@/assets/images/contact/facebook.png" alt=""></a>
 </section>
-<form class="contact-form"><input type="hidden" name="contact_number"><div><label>Your Name</label><input type="text" name="user_name" value=""></div><div><label>Email Address</label><input type="email" name="user_email" value=""><span class="fs16">new Promise (I'll never share it with anyone);</span></div><div><label>What's on your mind?</label><textarea name="message"></textarea></div><div><button class="fs24 action-btn" type="submit" value="Send">Email me!</button></div></form>
+<!-- <form class="contact-form"><input type="hidden" name="contact_number"><div><label>Your Name</label><input type="text" name="user_name" value=""></div><div><label>Email Address</label><input type="email" name="user_email" value=""><span class="fs16">new Promise (I'll never share it with anyone);</span></div><div><label>What's on your mind?</label><textarea name="message"></textarea></div><div><button class="fs24 action-btn" type="submit" value="Send">Email me!</button></div></form> -->
 </main>
 </main>
 </template>
@@ -22,15 +22,25 @@ export default {
 <style scoped>
 .contact-img-container{
 display: flex;
-flex-direction: column;
-  flex-basis: 30%;
-   border-right: 1px solid lightseagreen;
-   margin-right: 25px;
+/* flex-direction: column; */
+  /* flex-basis: 30%; */
+   /* border-right: 1px solid lightseagreen; */
+   /* margin-right: 25px; */
 /* margin-inline-start: ; */
+justify-content: space-between;
 }
+  @media (max-width: 750px) {
+   .contact-img-container{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+      /* gap: 46px;
+    align-items: center; */
+} 
+  }
 img{
-      height: 130px;
-    width: 130px;
+      height: 75px;
+    width: 75px;
 }
 .contact-item{
   display: flex;
@@ -38,7 +48,7 @@ img{
 }
 .contact-form{
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   flex-basis: 70%;
    justify-content: space-evenly;
 }
@@ -48,11 +58,12 @@ img{
 .head-line{
       font-family: 'latoregular';
     font-size: 1.5rem;
+     text-align: center;
 }
 .contact-wrapper{
-  display: flex;
-  border-radius: 1%;
- border: 1px solid lightseagreen;
+  /* display: flex; */
+  /* border-radius: 1%; */
+ /* border: 1px solid lightseagreen; */
 
 }
 </style>

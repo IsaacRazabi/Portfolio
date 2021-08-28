@@ -1,6 +1,6 @@
 <template>
   <main>
-<p>
+<p class="head-line">
     Education
 </p>
 <main class="education-container">
@@ -20,7 +20,7 @@
   </p>
 </span>
 </main>
-<p>
+<p class="head-line">
     Skills
 </p>
 <div class="skills-container">
@@ -82,11 +82,20 @@ display: flex;
 .skills-container{
     display: flex;
 justify-content: center;
+flex-wrap: wrap;
   margin-top: 60px;
   margin-bottom: 60px;
 }
+  /* @media (max-width: 750px) {
+    .skills-container {
+  display: flex;
+  flex-direction: column-reverse;
+  } } */
 img{
         max-width: 90px;
     max-height: 90px;
+}
+.head-line{
+  text-align: center;
 }
 </style>
